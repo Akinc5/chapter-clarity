@@ -358,10 +358,10 @@ function showToast(message) {
 }
 
 function getEaseStatus(score) {
-  if (score >= 80) return { label: 'Easy Reading', cls: 'pill-easy', desc: 'Effortless to read. Suitable for general commercial & young-adult fiction.' };
-  if (score >= 60) return { label: 'Standard Fiction', cls: 'pill-moderate', desc: 'Standard commercial prose (Stephen King, Gillian Flynn). Accessible and smooth.' };
-  if (score >= 45) return { label: 'Dense & Literary', cls: 'pill-dense', desc: 'Fairly complex prose with layered sentences. Demands reader attention.' };
-  return { label: 'Heavy Academic', cls: 'pill-very-dense', desc: 'Dense syntactic structure. Heavy cognitive load; frequent reader re-reading.' };
+  if (score >= 80) return { label: 'Easy Reading', cls: 'badge-success', desc: 'Effortless to read. Suitable for general commercial & young-adult fiction.' };
+  if (score >= 60) return { label: 'Standard Fiction', cls: 'badge-warning', desc: 'Standard commercial prose (Stephen King, Gillian Flynn). Accessible and smooth.' };
+  if (score >= 45) return { label: 'Dense & Literary', cls: 'badge-warning', desc: 'Fairly complex prose with layered sentences. Demands reader attention.' };
+  return { label: 'Heavy Academic', cls: 'badge-danger', desc: 'Dense syntactic structure. Heavy cognitive load; frequent reader re-reading.' };
 }
 
 function getGradeComparison(grade) {
@@ -380,7 +380,7 @@ function updateUI(analysis) {
     DOM.readingEaseScore.textContent = '—';
     DOM.readingEaseFill.style.width = '0%';
     DOM.readabilityBadge.textContent = 'Awaiting Text';
-    DOM.readabilityBadge.className = 'status-pill pill-moderate';
+    DOM.readabilityBadge.className = 'app-badge badge-warning';
     DOM.readingEaseExplanation.textContent = 'Paste a chapter to calculate Flesch reading ease.';
     DOM.gradeLevelScore.textContent = '—';
     DOM.gradeComparisonText.textContent = 'Waiting for input.';
@@ -388,17 +388,17 @@ function updateUI(analysis) {
     DOM.complexWordPercent.textContent = '0%';
     DOM.totalWordCount.textContent = '0';
     DOM.totalSentenceCount.textContent = '0';
-    DOM.estimatedReadTime.textContent = '0 min';
-    DOM.avgSentenceLength.textContent = '0 wds';
+    DOM.estimatedReadTime.textContent = '0m';
+    DOM.avgSentenceLength.textContent = '0w';
     DOM.charCountLabel.textContent = '0 characters';
     DOM.dialoguePercentLabel.textContent = '0% dialogue';
     DOM.hardCountBadge.textContent = '0';
     DOM.pacingWaveform.innerHTML = '';
     DOM.highlightedChapterText.innerHTML = '<p class="empty-text">No text to display.</p>';
     DOM.hardestSentencesList.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">✍️</div>
-        <h3>No text analyzed yet</h3>
+      <div class="app-empty-state">
+        <div class="empty-icon font-display">✍️</div>
+        <h3 class="font-display">NO TEXT ANALYZED YET</h3>
         <p>Paste a chapter or choose one of the sample chapters above to inspect the hardest sentences.</p>
       </div>`;
     return;
@@ -409,7 +409,7 @@ function updateUI(analysis) {
   DOM.readingEaseScore.textContent = analysis.fleschReadingEase;
   DOM.readingEaseFill.style.width = `${Math.min(100, Math.max(5, analysis.fleschReadingEase))}%`;
   DOM.readabilityBadge.textContent = easeInfo.label;
-  DOM.readabilityBadge.className = `status-pill ${easeInfo.cls}`;
+  DOM.readabilityBadge.className = `app-badge ${easeInfo.cls}`;
   DOM.readingEaseExplanation.textContent = easeInfo.desc;
 
   DOM.gradeLevelScore.textContent = analysis.fkGradeLevel;
@@ -701,12 +701,24 @@ DOM.copyReportBtn.addEventListener('click', () => {
   });
 });
 
-// Theme Toggle
+// Theme Toggle (CSACINTEL data-theme switcher)
 DOM.themeToggleBtn.addEventListener('click', () => {
-  const isLight = document.body.classList.toggle('theme-light');
-  document.body.classList.toggle('theme-dark', !isLight);
-  showToast(`Switched to ${isLight ? 'warm parchment' : 'dark obsidian'} theme`);
+  const currentTheme = document.documentElement.dataset.theme || 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = newTheme;
+  try {
+    localStorage.setItem('cintel-public-theme', newTheme);
+  } catch (e) {}
+  showToast(`Switched to ${newTheme === 'dark' ? 'dark poster' : 'retro parchment'} theme`);
 });
+
+// Restore saved theme
+try {
+  const saved = localStorage.getItem('cintel-public-theme');
+  if (saved) {
+    document.documentElement.dataset.theme = saved;
+  }
+} catch (e) {}
 
 // Formulas Toggle
 DOM.toggleFormulasBtn.addEventListener('click', () => {

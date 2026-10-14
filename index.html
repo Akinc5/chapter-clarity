@@ -1,48 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChapterClarity — Free Readability & Sentence Analyzer for Authors</title>
   <meta name="description" content="Paste any book chapter to instantly see its Flesch-Kincaid readability score, pacing rhythm, and the top 5 hardest sentences highlighted with actionable rewrite tips. Free, private, and runs entirely in your browser.">
+  
+  <!-- CINTEL Design Fonts: Outfit, Bungee, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-dark">
-  <!-- Top Ambient Glow -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+<body class="font-outfit antialiased selection-warning">
+  <!-- Retro Grid Background Layer -->
+  <div class="bg-dots-pattern"></div>
 
-  <!-- Header Navigation -->
+  <!-- Header Navigation (CSACINTEL Style) -->
   <header class="app-header">
     <div class="header-inner container">
-      <div class="brand-group">
-        <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a class="brand-link" href="#">
+        <div class="brand-logo-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             <line x1="9" y1="7" x2="15" y2="7"></line>
             <line x1="9" y1="11" x2="13" y2="11"></line>
           </svg>
         </div>
-        <div class="brand-text">
-          <span class="brand-title">Chapter<span class="gradient-text">Clarity</span></span>
-          <span class="brand-badge">Author Edition</span>
+        <div class="brand-text-block">
+          <span class="brand-title-main text-poster-outline">Chapter</span>
+          <span class="brand-title-sub">Clarity · Author Tool</span>
         </div>
-      </div>
+      </a>
 
-      <div class="header-actions">
-        <div class="privacy-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <div class="header-right-actions">
+        <div class="badge-pill privacy-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
           <span>100% Client-Side Private</span>
         </div>
-        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+        <button id="themeToggleBtn" type="button" class="neo-square-btn theme-toggle-btn" aria-label="Switch Theme" title="Toggle theme">
+          <!-- Moon Icon (for Light Mode) -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <!-- Sun Icon (for Dark Mode) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -53,289 +61,297 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero Section in CSACINTEL Poster Style -->
   <section class="hero-section container">
-    <div class="hero-content">
-      <div class="hero-tag">
-        <span class="pulsing-dot"></span>
-        <span>Free Prose Readability & Flow Diagnostic</span>
+    <div class="hero-banner-panel app-panel">
+      <div class="hero-top-tag">
+        <span class="tag-accent-box">FREE</span>
+        <span class="font-tech text-tag">MANUSCRIPT READABILITY & PACING DIAGNOSTIC</span>
       </div>
-      <h1 class="hero-title">Paste your chapter. Discover your <span class="gradient-text">hardest sentences</span> in seconds.</h1>
-      <p class="hero-desc">
-        Never let dense clauses, breath-stealing run-ons, or vocabulary sludge jar your reader out of their immersion. Analyze reading levels, track pacing rhythm, and isolate the top 5 sentences tripping your readers.
-      </p>
-    </div>
 
-    <!-- Quick Load Sample Chapters -->
-    <div class="sample-bar">
-      <span class="sample-label">Try sample chapter:</span>
-      <div class="sample-chips">
-        <button class="sample-chip" data-sample="frankenstein">
-          <span class="chip-dot dot-classic"></span> Shelley's Frankenstein
-        </button>
-        <button class="sample-chip" data-sample="mobydick">
-          <span class="chip-dot dot-dense"></span> Melville's Moby-Dick
-        </button>
-        <button class="sample-chip" data-sample="thriller">
-          <span class="chip-dot dot-fast"></span> Modern Fast-Paced Thriller
-        </button>
-        <button class="sample-chip" data-sample="scifi">
-          <span class="chip-dot dot-scifi"></span> Hard Sci-Fi Space Opera
-        </button>
-        <button class="sample-chip" data-sample="yafiction">
-          <span class="chip-dot dot-ya"></span> Young Adult Fiction
-        </button>
+      <h1 class="hero-title">
+        PASTE YOUR CHAPTER. <span class="text-highlight-yellow">SPOTLIGHT THE 5 HARDEST SENTENCES.</span>
+      </h1>
+      
+      <p class="hero-lead">
+        Dense Latinate clauses, breath-stealing run-ons, and tangled punctuation pull readers out of their immersion. Analyze reading levels, track narrative cadence, and isolate the top 5 sentences tripping your readers.
+      </p>
+
+      <!-- Neo-Brutalist Notice / Instruction Note -->
+      <div class="app-alert-note" role="note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="alert-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+        <p>
+          <strong>No sign-in required:</strong> Paste any excerpt from 100 to 10,000 words. Computations run locally in your browser so your unpublished manuscript remains strictly confidential.
+        </p>
+      </div>
+
+      <!-- Quick Preset Sample Chapters -->
+      <div class="samples-row">
+        <span class="samples-label font-tech">TEST SAMPLES:</span>
+        <div class="samples-chips-wrap">
+          <button class="sample-chip" data-sample="frankenstein">
+            <span class="chip-color-indicator bg-primary-red"></span> Shelley's Frankenstein
+          </button>
+          <button class="sample-chip" data-sample="mobydick">
+            <span class="chip-color-indicator bg-primary-yellow"></span> Melville's Moby-Dick
+          </button>
+          <button class="sample-chip" data-sample="thriller">
+            <span class="chip-color-indicator bg-success"></span> Modern Fast Thriller
+          </button>
+          <button class="sample-chip" data-sample="scifi">
+            <span class="chip-color-indicator bg-brand"></span> Space Opera Sci-Fi
+          </button>
+          <button class="sample-chip" data-sample="yafiction">
+            <span class="chip-color-indicator bg-accent"></span> Young Adult Fiction
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Main Analysis Workspace -->
   <main class="main-workspace container">
-    <!-- Top Metrics Overview Bar -->
+    <!-- Readability Metrics Cards (Neo-Brutalist Stat Cards) -->
     <section class="metrics-grid">
-      <!-- Readability Gauge Card -->
-      <div class="metric-card primary-grade-card">
-        <div class="metric-header">
-          <span class="metric-title">Flesch Reading Ease</span>
-          <span id="readabilityBadge" class="status-pill pill-moderate">Analyzing</span>
+      <!-- 1. Flesch Reading Ease -->
+      <div class="app-stat-card stat-card-primary">
+        <div class="stat-header">
+          <span class="font-tech stat-title">Flesch Reading Ease</span>
+          <span id="readabilityBadge" class="app-badge badge-warning">Analyzing</span>
         </div>
-        <div class="gauge-wrapper">
-          <div class="gauge-score-display">
-            <span id="readingEaseScore" class="gauge-big-number">65.4</span>
-            <span class="gauge-denominator">/ 100</span>
-          </div>
-          <div class="gauge-bar-track">
-            <div id="readingEaseFill" class="gauge-bar-fill" style="width: 65%;"></div>
-          </div>
-          <div class="gauge-labels">
-            <span>0 (Very Confusing)</span>
-            <span>60 (Standard Novel)</span>
-            <span>100 (Effortless)</span>
-          </div>
+        <div class="stat-main-row">
+          <div class="stat-big-val font-display" id="readingEaseScore">65.4</div>
+          <span class="stat-denominator font-tech">/100</span>
         </div>
-        <p id="readingEaseExplanation" class="metric-subtext">
-          Plain English suitable for standard commercial fiction readers (approx. 8th–9th grade).
+        <div class="neo-progress-track">
+          <div id="readingEaseFill" class="neo-progress-fill" style="width: 65%;"></div>
+        </div>
+        <div class="progress-labels font-tech">
+          <span>0 (Very Hard)</span>
+          <span>60 (Novel Standard)</span>
+          <span>100 (Effortless)</span>
+        </div>
+        <p id="readingEaseExplanation" class="stat-subtext">
+          Standard commercial fiction reading ease.
         </p>
       </div>
 
-      <!-- Grade Level Card -->
-      <div class="metric-card">
-        <div class="metric-header">
-          <span class="metric-title">Flesch-Kincaid Grade</span>
-          <span class="metric-icon">🎓</span>
+      <!-- 2. Grade Level -->
+      <div class="app-stat-card">
+        <div class="stat-header">
+          <span class="font-tech stat-title">Flesch-Kincaid Grade</span>
+          <span class="stat-icon-badge">🎓</span>
         </div>
-        <div class="metric-value-row">
-          <span id="gradeLevelScore" class="metric-hero-num">8.4</span>
-          <span class="metric-unit">Grade</span>
+        <div class="stat-main-row">
+          <div class="stat-big-val font-display" id="gradeLevelScore">8.4</div>
+          <span class="stat-unit font-tech">GRADE</span>
         </div>
-        <div class="target-comparison">
-          <span class="target-label">Target for fiction:</span>
-          <span class="target-val">Grade 6 – 9</span>
+        <div class="stat-sub-box">
+          <span class="font-tech text-xs">COMMERCIAL FICTION TARGET:</span>
+          <strong class="target-highlight">Grade 6 – 9</strong>
         </div>
-        <p id="gradeComparisonText" class="metric-subtext">
-          On par with Stephen King & Suzanne Collins.
+        <p id="gradeComparisonText" class="stat-subtext">
+          On par with Suzanne Collins and Stephen King.
         </p>
       </div>
 
-      <!-- Gunning Fog / Complexity -->
-      <div class="metric-card">
-        <div class="metric-header">
-          <span class="metric-title">Gunning Fog Index</span>
-          <span class="metric-icon">🌫️</span>
+      <!-- 3. Gunning Fog Index -->
+      <div class="app-stat-card">
+        <div class="stat-header">
+          <span class="font-tech stat-title">Gunning Fog Index</span>
+          <span class="stat-icon-badge">🌫️</span>
         </div>
-        <div class="metric-value-row">
-          <span id="fogIndexScore" class="metric-hero-num">9.8</span>
-          <span class="metric-unit">Index</span>
+        <div class="stat-main-row">
+          <div class="stat-big-val font-display" id="fogIndexScore">9.8</div>
+          <span class="stat-unit font-tech">INDEX</span>
         </div>
-        <div class="complex-word-stat">
-          <span>Complex words (3+ syl):</span>
-          <strong id="complexWordPercent">8.2%</strong>
+        <div class="stat-sub-box">
+          <span class="font-tech text-xs">HARD WORDS (3+ SYL):</span>
+          <strong id="complexWordPercent" class="font-tech">8.2%</strong>
         </div>
-        <p class="metric-subtext">
-          Measures years of formal schooling needed for effortless comprehension.
+        <p class="stat-subtext">
+          Formal schooling years required for effortless comprehension.
         </p>
       </div>
 
-      <!-- Reading Time & Flow -->
-      <div class="metric-card">
-        <div class="metric-header">
-          <span class="metric-title">Chapter Dimensions</span>
-          <span class="metric-icon">⏱️</span>
+      <!-- 4. Dimensions & Cadence -->
+      <div class="app-stat-card">
+        <div class="stat-header">
+          <span class="font-tech stat-title">Chapter Dimensions</span>
+          <span class="stat-icon-badge">⏱️</span>
         </div>
-        <div class="stats-mini-grid">
-          <div class="mini-stat">
-            <span class="mini-stat-label">Words</span>
-            <span id="totalWordCount" class="mini-stat-val">0</span>
+        <div class="dimension-stats-grid">
+          <div class="dim-stat-cell">
+            <span class="dim-label font-tech">WORDS</span>
+            <span id="totalWordCount" class="dim-num font-tech">0</span>
           </div>
-          <div class="mini-stat">
-            <span class="mini-stat-label">Sentences</span>
-            <span id="totalSentenceCount" class="mini-stat-val">0</span>
+          <div class="dim-stat-cell">
+            <span class="dim-label font-tech">SENTENCES</span>
+            <span id="totalSentenceCount" class="dim-num font-tech">0</span>
           </div>
-          <div class="mini-stat">
-            <span class="mini-stat-label">Read Time</span>
-            <span id="estimatedReadTime" class="mini-stat-val">0 min</span>
+          <div class="dim-stat-cell">
+            <span class="dim-label font-tech">READ TIME</span>
+            <span id="estimatedReadTime" class="dim-num font-tech">0m</span>
           </div>
-          <div class="mini-stat">
-            <span class="mini-stat-label">Avg Length</span>
-            <span id="avgSentenceLength" class="mini-stat-val">0 wds</span>
+          <div class="dim-stat-cell">
+            <span class="dim-label font-tech">AVG LENGTH</span>
+            <span id="avgSentenceLength" class="dim-num font-tech">0w</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pacing Rhythm Visualizer (Sentence Length Waveform) -->
-    <section class="pacing-section">
-      <div class="section-header-row">
-        <div class="section-title-wrap">
-          <span class="section-badge">Narrative Rhythm</span>
-          <h2 class="section-heading">Sentence Cadence & Pacing Waveform</h2>
-          <p class="section-subheading">Gary Provost rule: Vary sentence length to create music. Yellow/red peaks mark your hardest & longest sentences.</p>
+    <!-- Sentence Cadence Waveform (Neo-Brutalism Track) -->
+    <section class="waveform-panel app-panel">
+      <div class="waveform-header">
+        <div>
+          <div class="inline-badge font-tech uppercase">Gary Provost Pacing Visualizer</div>
+          <h2 class="font-display waveform-heading">SENTENCE CADENCE & PACING RHYTHM</h2>
+          <p class="waveform-sub">Vary sentence length to create music. Crimson & amber peaks flag your longest and most mentally taxing sentences.</p>
         </div>
-        <div class="pacing-legend">
-          <span class="legend-item"><span class="legend-dot dot-breeze"></span> Breezy (&lt;14 wds)</span>
-          <span class="legend-item"><span class="legend-dot dot-med"></span> Moderate (14–25 wds)</span>
-          <span class="legend-item"><span class="legend-dot dot-dense-pill"></span> Dense (26–39 wds)</span>
-          <span class="legend-item"><span class="legend-dot dot-hardest-pill"></span> Hardest Top 5</span>
+        <div class="waveform-legend font-tech">
+          <span class="legend-pill"><span class="legend-swatch swatch-breeze"></span> Breezy (&lt;14w)</span>
+          <span class="legend-pill"><span class="legend-swatch swatch-med"></span> Moderate (14-25w)</span>
+          <span class="legend-pill"><span class="legend-swatch swatch-dense"></span> Dense (26-39w)</span>
+          <span class="legend-pill"><span class="legend-swatch swatch-hardest"></span> Top 5 Hardest</span>
         </div>
       </div>
-      <div class="waveform-container">
-        <div id="pacingWaveform" class="waveform-bars">
+
+      <div class="waveform-scroll-area">
+        <div id="pacingWaveform" class="waveform-bars-container">
           <!-- Dynamically populated sentence bars -->
         </div>
       </div>
     </section>
 
-    <!-- Split View: Text Editor / Highlighted Reader + Top 5 Hardest Inspector -->
-    <div class="workspace-split">
-      <!-- Left Column: Chapter Input & Interactive Highlight View -->
-      <div class="editor-column">
-        <div class="editor-card">
-          <div class="editor-toolbar">
-            <div class="tab-switches">
-              <button id="viewInputTab" class="tab-btn active" data-tab="input">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 20h9"></path>
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
-                Editor
-              </button>
-              <button id="viewHighlightedTab" class="tab-btn" data-tab="highlighted">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                Hardest Sentences Heatmap
-                <span id="hardCountBadge" class="tab-count-pill">5</span>
-              </button>
-            </div>
-
-            <div class="toolbar-actions">
-              <button id="clearBtn" class="tool-btn" title="Clear Text">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"></polyline>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                </svg>
-                Clear
-              </button>
-              <button id="copyReportBtn" class="tool-btn" title="Copy Readability Report">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                Copy Report
-              </button>
-            </div>
-          </div>
-
-          <!-- Raw Input Pane -->
-          <div id="editorInputPane" class="pane-content active">
-            <textarea
-              id="chapterInput"
-              class="chapter-textarea"
-              placeholder="Paste your chapter text here, or select a sample above to test immediately...
-
-Try pasting 300 to 5,000 words. The engine instantly computes all readability indexes and spotlights your 5 most difficult sentences."
-              spellcheck="false"
-            ></textarea>
-          </div>
-
-          <!-- Heatmap Highlighted Pane -->
-          <div id="editorHighlightPane" class="pane-content">
-            <div class="heatmap-instruction-banner">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="m9 12 2 2 4-4"></path>
+    <!-- Workspace Split: Editor & Inspector -->
+    <div class="workspace-grid">
+      <!-- Left Column: Chapter Input & Interactive Heatmap View -->
+      <div class="editor-container app-panel">
+        <div class="editor-header-bar">
+          <div class="editor-tabs">
+            <button id="viewInputTab" class="tab-btn active font-tech" data-tab="input">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
               </svg>
-              <span>The 5 most mentally taxing sentences are highlighted with glowing difficulty badges. Click any highlighted sentence to inspect recommendations.</span>
-            </div>
-            <div id="highlightedChapterText" class="chapter-highlighted-view">
-              <!-- Dynamically populated HTML with inline marks -->
-            </div>
+              EDITOR
+            </button>
+            <button id="viewHighlightedTab" class="tab-btn font-tech" data-tab="highlighted">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              HARDEST HEATMAP
+              <span id="hardCountBadge" class="tab-badge">5</span>
+            </button>
           </div>
 
-          <!-- Editor Footer Stats -->
-          <div class="editor-footer">
-            <div class="footer-stat-group">
-              <span id="charCountLabel">0 characters</span>
-              <span class="stat-separator">•</span>
-              <span id="dialoguePercentLabel">0% dialogue</span>
-            </div>
-            <div class="footer-tip">
-              <span>Tip: Switch to <strong>Heatmap</strong> tab to see sentences highlighted in context</span>
-            </div>
+          <div class="editor-actions">
+            <button id="clearBtn" class="neo-action-btn font-tech" title="Clear Text">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              CLEAR
+            </button>
+            <button id="copyReportBtn" class="neo-action-btn neo-btn-brand font-tech" title="Copy Full Diagnostic Report">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              COPY REPORT
+            </button>
+          </div>
+        </div>
+
+        <!-- Raw Textarea Pane -->
+        <div id="editorInputPane" class="pane-view active">
+          <textarea
+            id="chapterInput"
+            class="chapter-textarea"
+            placeholder="Paste your chapter text here, or select a sample above to test immediately...
+
+Paste 300 to 5,000 words. The engine immediately computes all readability indexes and spotlights your 5 most difficult sentences."
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <!-- Heatmap Highlight Pane -->
+        <div id="editorHighlightPane" class="pane-view">
+          <div class="heatmap-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span class="font-tech">The 5 hardest sentences are highlighted with ranked badges. Click any highlighted sentence to view rewrite tips.</span>
+          </div>
+          <div id="highlightedChapterText" class="chapter-highlighted-view">
+            <!-- Dynamically populated HTML with highlighted spans -->
+          </div>
+        </div>
+
+        <!-- Editor Footer Stats -->
+        <div class="editor-footer-bar font-tech">
+          <div class="footer-stats-left">
+            <span id="charCountLabel">0 characters</span>
+            <span class="dot-separator">•</span>
+            <span id="dialoguePercentLabel">0% dialogue</span>
+          </div>
+          <div class="footer-tip">
+            <span>Tip: Switch to <strong>Heatmap</strong> to see highlighted sentences in place</span>
           </div>
         </div>
       </div>
 
       <!-- Right Column: Top 5 Hardest Sentences Inspector & Rewrite Studio -->
-      <div class="inspector-column">
-        <div class="inspector-header">
-          <div class="inspector-title-wrap">
-            <span class="inspector-badge">Deep Diagnostic</span>
-            <h2 class="inspector-heading">Top 5 Hardest Sentences</h2>
-          </div>
-          <span class="inspector-subtitle">Ranked by combined syllable density, length & syntactic weight</span>
+      <div class="inspector-container">
+        <div class="inspector-title-card app-panel-muted">
+          <span class="app-badge badge-danger font-tech">Deep Diagnostic</span>
+          <h2 class="font-display inspector-heading">TOP 5 HARDEST SENTENCES</h2>
+          <p class="inspector-sub">Ranked by combined syllable density, length, and syntactic weight</p>
         </div>
 
-        <!-- Dynamic List of 5 Hardest Cards -->
-        <div id="hardestSentencesList" class="hardest-sentences-container">
+        <!-- Dynamic List of 5 Hardest Sentence Cards -->
+        <div id="hardestSentencesList" class="hardest-cards-wrapper">
           <!-- Populated by JS -->
-          <div class="empty-state">
-            <div class="empty-icon">✍️</div>
-            <h3>No text analyzed yet</h3>
+          <div class="app-empty-state">
+            <div class="empty-icon font-display">✍️</div>
+            <h3 class="font-display">NO TEXT ANALYZED YET</h3>
             <p>Paste a chapter or choose one of the sample chapters above to inspect the hardest sentences.</p>
           </div>
         </div>
 
-        <!-- Formulas Reference Card -->
-        <div class="formulas-card">
-          <button id="toggleFormulasBtn" class="formulas-toggle" aria-expanded="false">
-            <span>How readability & difficulty are calculated</span>
-            <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- Readability Formulas Accordion -->
+        <div class="app-panel-muted formulas-card">
+          <button id="toggleFormulasBtn" class="formulas-accordion-btn font-tech" aria-expanded="false">
+            <span>HOW READABILITY & DIFFICULTY ARE COMPUTED</span>
+            <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
-          <div id="formulasContent" class="formulas-content">
-            <div class="formula-item">
-              <strong>Flesch Reading Ease:</strong> 206.835 - (1.015 × ASL) - (84.6 × ASW). Higher is easier. 60–70 is ideal for fiction.
+          <div id="formulasContent" class="formulas-content-box">
+            <div class="formula-rule">
+              <strong class="font-tech">Flesch Reading Ease:</strong> 206.835 - (1.015 × ASL) - (84.6 × ASW). Higher is easier. 60–70 is ideal for novels.
             </div>
-            <div class="formula-item">
-              <strong>Flesch-Kincaid Grade:</strong> (0.39 × ASL) + (11.8 × ASW) - 15.59. Corresponds to US school grade reading comprehension.
+            <div class="formula-rule">
+              <strong class="font-tech">Flesch-Kincaid Grade:</strong> (0.39 × ASL) + (11.8 × ASW) - 15.59. Measures US school grade comprehension level.
             </div>
-            <div class="formula-item">
-              <strong>Gunning Fog Index:</strong> 0.4 × [ASL + 100 × (Hard Words / Total Words)]. Hard words = 3+ syllables.
+            <div class="formula-rule">
+              <strong class="font-tech">Gunning Fog Index:</strong> 0.4 × [ASL + 100 × (Hard Words / Total Words)]. Hard words = 3+ syllables.
             </div>
-            <div class="formula-item">
-              <strong>Sentence Difficulty Score:</strong> Multi-factor weight blending word count, polysyllabic ratio, subordinate clause punctuation (semicolons/dashes), and grade level.
+            <div class="formula-rule">
+              <strong class="font-tech">Difficulty Score:</strong> Multi-factor weight blending word count, polysyllabic ratio, subordinate clause punctuation (semicolons/dashes), and isolated grade level.
             </div>
           </div>
         </div>
@@ -343,18 +359,17 @@ Try pasting 300 to 5,000 words. The engine instantly computes all readability in
     </div>
   </main>
 
-  <!-- Toast Notification -->
-  <div id="toastMessage" class="toast-notification"></div>
+  <!-- Neo-Brutalist Toast Notification -->
+  <div id="toastMessage" class="neo-toast font-tech"></div>
 
-  <!-- Footer -->
+  <!-- Footer (CSACINTEL Style) -->
   <footer class="app-footer container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <span class="brand-title">Chapter<span class="gradient-text">Clarity</span></span>
-        <p class="footer-tagline">Crafted for novelists, storytellers, and prose stylists who care about rhythm.</p>
+    <div class="footer-inner">
+      <div class="footer-brand font-display">
+        <span class="text-poster-outline">Chapter</span><span class="text-primary-red">Clarity</span>
       </div>
-      <div class="footer-note">
-        <p>100% Free & Open Web Tool • Zero Logins • Private Local Execution</p>
+      <div class="footer-text font-tech">
+        CHAPTERCLARITY · FREE PROSE READABILITY FOR AUTHORS & EDITORS · 100% LOCAL & PRIVATE
       </div>
     </div>
   </footer>
